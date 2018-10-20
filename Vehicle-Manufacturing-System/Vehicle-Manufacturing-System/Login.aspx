@@ -9,6 +9,9 @@
         .auto-style1 {
             width: 100%;
         }
+        .auto-style2 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -18,16 +21,22 @@
     </div>
         <table class="auto-style1">
             <tr>
-                <td>User_ID<asp:TextBox ID="TextBox1" runat="server" style="margin-left: 98px"></asp:TextBox>
+                <td class="auto-style2">User_ID<asp:TextBox ID="User_ID_text" runat="server" style="margin-left: 98px"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="User_ID_text" ErrorMessage="Please Enter ID" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td>Password<asp:TextBox ID="TextBox2" runat="server" style="margin-left: 91px"></asp:TextBox>
+                <td class="auto-style2">&nbsp;Password<asp:TextBox ID="Password_text" runat="server" style="margin-left: 93px" TextMode="Password" Width="120px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Password_text" ErrorMessage="Please enter password" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
                 <td>&nbsp;</td>
             </tr>
         </table>
+        <p style="text-align: left">
+            <asp:Button ID="Bttn_Login" runat="server" OnClick="Bttn_Login_Click" style="margin-left: 324px" Text="Login" Width="113px" />
+        </p>
     </form>
 </body>
 </html>

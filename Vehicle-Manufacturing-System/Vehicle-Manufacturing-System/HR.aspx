@@ -8,9 +8,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div style="text-align: center">
     
-    </div>
+        HR form</div>
     </form>
 </body>
 </html>

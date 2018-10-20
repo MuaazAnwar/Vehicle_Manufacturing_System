@@ -7,14 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace Vehicle_Manufacturing_System
 {
-    public partial class Super_User : System.Web.UI.Page
+    public partial class Accounts : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
