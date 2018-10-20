@@ -37,7 +37,8 @@ namespace Vehicle_Manufacturing_System
                     Response.Write("Pass is verified");
                     string checkdept = "select deptno from employee where ID='" + User_ID_text.Text + "'";
                     SqlCommand cmd2 = new SqlCommand(checkdept,conc);
-                    int userdept = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                    int userdept = Convert.ToInt32(cmd2.ExecuteScalar().ToString());
+                    Response.Write(userdept);
                     if (userdept == 1)
                     {
                         //Response.Redirect("HR.aspx");
@@ -48,7 +49,8 @@ namespace Vehicle_Manufacturing_System
                     }
                     else if (userdept == 4)
                     {
-                        //Response.Redirect("Sales.aspx");
+                        Response.Write("i am Here");
+                        Response.Redirect("Sales.aspx?loginperson=" +User_ID_text.Text);
                     }
                     else if (userdept == 7)
                     {

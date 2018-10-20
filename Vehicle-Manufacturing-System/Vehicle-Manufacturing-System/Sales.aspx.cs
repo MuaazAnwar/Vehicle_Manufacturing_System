@@ -11,6 +11,12 @@ namespace Vehicle_Manufacturing_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string loginperson = Request.QueryString["loginperson"];
+            Label1.Text = "ID: " + loginperson;  
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
