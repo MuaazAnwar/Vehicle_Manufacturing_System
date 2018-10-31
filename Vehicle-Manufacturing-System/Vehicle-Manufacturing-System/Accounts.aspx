@@ -9,5 +9,7 @@
 <body>
     <p style="text-align: center">
         Accounting Form</p>
+    <p itemtype="Accounts.aspx" style="text-align: center">
+        &nbsp;</p>
 </body>
 </html>
