@@ -38,23 +38,26 @@ namespace Vehicle_Manufacturing_System
                     string checkdept = "select deptno from employee where ID='" + User_ID_text.Text + "'";
                     SqlCommand cmd2 = new SqlCommand(checkdept,conc);
                     int userdept = Convert.ToInt32(cmd2.ExecuteScalar().ToString());
-                    Response.Write(userdept);
+                    //Response.Write(userdept);
                     if (userdept == 1)
                     {
-                        //Response.Redirect("HR.aspx");
+                        Response.Redirect("HR.aspx?loginperson=" + User_ID_text.Text);
+                        conc.Close();
                     }
                     else if (userdept == 2)
                     {
-                        //Response.Redirect("Accounting.aspx");
+                        Response.Redirect("Accounting.aspx?loginperson=" + User_ID_text.Text);
+                        conc.Close();
                     }
                     else if (userdept == 4)
                     {
-                        Response.Write("i am Here");
                         Response.Redirect("Sales.aspx?loginperson=" +User_ID_text.Text);
+                        conc.Close();
                     }
                     else if (userdept == 7)
                     {
-                        //Response.Redirect("Marketing.aspx");
+                        Response.Redirect("Marketing.aspx?loginperson=" + User_ID_text.Text);
+                        conc.Close();
                     }
 
 
@@ -69,6 +72,11 @@ namespace Vehicle_Manufacturing_System
                 Response.Write("user does'nt exists");
             }
 
+
+        }
+
+        protected void User_ID_text_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

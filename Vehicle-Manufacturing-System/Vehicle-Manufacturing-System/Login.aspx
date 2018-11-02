@@ -21,7 +21,7 @@
     </div>
         <table class="auto-style1">
             <tr>
-                <td class="auto-style2">User_ID<asp:TextBox ID="User_ID_text" runat="server" style="margin-left: 98px"></asp:TextBox>
+                <td class="auto-style2">User_ID<asp:TextBox ID="User_ID_text" runat="server" style="margin-left: 98px" OnTextChanged="User_ID_text_TextChanged"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="User_ID_text" ErrorMessage="Please Enter ID" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>

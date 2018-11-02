@@ -10,7 +10,9 @@
     <form id="form1" runat="server">
     <div style="text-align: center">
     
-        HR form</div>
+        HR form<br />
+        <asp:Label ID="label_id" runat="server" Text="Label"></asp:Label>
+        </div>
     </form>
 </body>
 </html>

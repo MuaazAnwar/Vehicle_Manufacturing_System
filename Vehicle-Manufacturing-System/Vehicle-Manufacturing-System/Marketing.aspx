@@ -10,7 +10,12 @@
     <form id="form1" runat="server">
     <div style="text-align: center">
     
-        Marketing Form</div>
+        Marketing Form<br />
+        <br />
+        <br />
+        <br />
+        <asp:Button ID="Button_mng_info" runat="server" Text="Manage Employee info" />
+        </div>
     </form>
 </body>
 </html>

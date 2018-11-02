@@ -11,7 +11,8 @@ namespace Vehicle_Manufacturing_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string loginperson = Request.QueryString["loginperson"];
+            label_id.Text = "ID: " + loginperson;
         }
     }
 }
