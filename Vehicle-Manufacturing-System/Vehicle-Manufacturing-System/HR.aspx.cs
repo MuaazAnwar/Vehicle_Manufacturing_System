@@ -12,17 +12,16 @@ namespace Vehicle_Manufacturing_System
     
     public partial class HR : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            con.Open();
-
-        }
+        
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("insert into table Employee('"+id.Text+"','"+password.Text+"','"+deptno.Text+"','"+job.Text+"')",conn);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString);
+            con.Open();
+            
+            SqlCommand cmd = new SqlCommand("insert into Employee values('"+id.Text+"','"+password.Text+"','"+deptno.Text+"','"+job.Text+"')",con);
             cmd.ExecuteNonQuery();
+
             con.Close();
             id.Text = "";
             password.Text = "";
