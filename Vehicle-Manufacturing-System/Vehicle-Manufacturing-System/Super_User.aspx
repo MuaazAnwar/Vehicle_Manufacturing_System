@@ -11,25 +11,36 @@
     <div>
     
     </div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBconnect %>" SelectCommand="SELECT * FROM [Employee]"></asp:SqlDataSource>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="emp_id" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" SortExpression="Id" />
-                <asp:BoundField DataField="pass" HeaderText="pass" SortExpression="pass" />
-                <asp:BoundField DataField="deptno" HeaderText="deptno" SortExpression="deptno" />
+                <asp:BoundField DataField="emp_id" HeaderText="emp_id" ReadOnly="True" SortExpression="emp_id" />
+                <asp:BoundField DataField="First_Name" HeaderText="First_Name" SortExpression="First_Name" />
+                <asp:BoundField DataField="Last_Name" HeaderText="Last_Name" SortExpression="Last_Name" />
+                <asp:BoundField DataField="job" HeaderText="job" SortExpression="job" />
+                <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
+                <asp:BoundField DataField="Manager_Id" HeaderText="Manager_Id" SortExpression="Manager_Id" />
+                <asp:BoundField DataField="Task_Assign" HeaderText="Task_Assign" SortExpression="Task_Assign" />
+                <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
+                <asp:BoundField DataField="Department_No" HeaderText="Department_No" SortExpression="Department_No" />
+                <asp:BoundField DataField="Commision" HeaderText="Commision" SortExpression="Commision" />
+                <asp:BoundField DataField="Salary" HeaderText="Salary" SortExpression="Salary" />
+                <asp:BoundField DataField="House_No" HeaderText="House_No" SortExpression="House_No" />
+                <asp:BoundField DataField="Area" HeaderText="Area" SortExpression="Area" />
+                <asp:BoundField DataField="Town" HeaderText="Town" SortExpression="Town" />
+                <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
             </Columns>
-            <EditRowStyle BackColor="#2461BF" />
-            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#EFF3FB" />
-            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#F5F7FB" />
-            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-            <SortedDescendingCellStyle BackColor="#E9EBEF" />
-            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            <FooterStyle BackColor="#CCCC99" />
+            <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
+            <RowStyle BackColor="#F7F7DE" />
+            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#FBFBF2" />
+            <SortedAscendingHeaderStyle BackColor="#848384" />
+            <SortedDescendingCellStyle BackColor="#EAEAD3" />
+            <SortedDescendingHeaderStyle BackColor="#575357" />
         </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBconnect %>" SelectCommand="SELECT * FROM [Employee]"></asp:SqlDataSource>
     </form>
 </body>
 </html>

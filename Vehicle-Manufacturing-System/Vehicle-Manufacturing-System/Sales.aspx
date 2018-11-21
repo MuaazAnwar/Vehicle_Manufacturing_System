@@ -24,13 +24,17 @@
         <asp:Label ID="label_id" runat="server" Text="Label"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Label_post" runat="server" Text="Label"></asp:Label>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBconnect %>" SelectCommand="SELECT [Id], [deptno] FROM [Employee]"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" style="text-align: left; margin-left: 264px; " Width="319px">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBconnect %>" SelectCommand="SELECT * FROM [Car_sold]"></asp:SqlDataSource>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="chassis_no" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" style="text-align: left; margin-left: 264px; " Width="319px">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="True" SortExpression="Id" />
-                <asp:BoundField DataField="deptno" HeaderText="deptno" SortExpression="deptno" />
+                <asp:BoundField DataField="emp_id" HeaderText="emp_id" SortExpression="emp_id" />
+                <asp:BoundField DataField="car_id" HeaderText="car_id" SortExpression="car_id" />
+                <asp:BoundField DataField="colour_id" HeaderText="colour_id" SortExpression="colour_id" />
+                <asp:BoundField DataField="customer_id" HeaderText="customer_id" SortExpression="customer_id" />
+                <asp:BoundField DataField="chassis_no" HeaderText="chassis_no" ReadOnly="True" SortExpression="chassis_no" />
+                <asp:BoundField DataField="instalment_year" HeaderText="instalment_year" SortExpression="instalment_year" />
+                <asp:BoundField DataField="date_of_purchase" HeaderText="date_of_purchase" SortExpression="date_of_purchase" />
             </Columns>
             <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
