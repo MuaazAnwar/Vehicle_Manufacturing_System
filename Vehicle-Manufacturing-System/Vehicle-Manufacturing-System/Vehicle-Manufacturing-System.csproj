@@ -57,7 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Accounts.aspx" />
+    <Content Include="Accounting.aspx" />
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
@@ -72,12 +72,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accounts.aspx.cs">
-      <DependentUpon>Accounts.aspx</DependentUpon>
+    <Compile Include="Accounting.aspx.cs">
+      <DependentUpon>Accounting.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Accounts.aspx.designer.cs">
-      <DependentUpon>Accounts.aspx</DependentUpon>
+    <Compile Include="Accounting.aspx.designer.cs">
+      <DependentUpon>Accounting.aspx</DependentUpon>
     </Compile>
     <Compile Include="HR.aspx.cs">
       <DependentUpon>HR.aspx</DependentUpon>

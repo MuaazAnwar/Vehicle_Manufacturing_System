@@ -59,8 +59,8 @@
         <p>
             <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Customer exist already" />
         </p>
-        <p>
-            <asp:Label ID="info1" runat="server" Text="Add Customer info"></asp:Label>
+        <p style="text-align: left">
+            <asp:Label ID="info1" runat="server" Text="Add Customer info" style="text-align: left"></asp:Label>
         </p>
         <p>
             <asp:TextBox ID="C1" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
