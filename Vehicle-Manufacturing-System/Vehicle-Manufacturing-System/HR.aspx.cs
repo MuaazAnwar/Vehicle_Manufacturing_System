@@ -23,8 +23,8 @@ namespace Vehicle_Manufacturing_System
             SqlCommand cmd = new SqlCommand("insert into Employee values('" + empid.Text + "','" + fname.Text + "','" + lname.Text + "','" + job.Text + "','" + passsword.Text + "','" + mgr_id.Text + "','" + task_ass.Text + "','" + gender.Text + "','" + deptno.Text + "','" + comm.Text + "','" + sal.Text + "','" + house_num.Text + "','" + area.Text + "','" + town.Text + "','" + city.Text + "')", con);
             cmd.ExecuteNonQuery();
             con.Close();
-            Label1.Visible = true;
-            Label1.Text = "Data Stored Successfully.";
+            //Label1.Visible = true;
+            //Label1.Text = "Data Stored Successfully.";
             empid.Text = "";
             fname.Text = "";
             lname.Text = "";
@@ -53,5 +53,7 @@ namespace Vehicle_Manufacturing_System
         {
 
         }
+
+       
     }
 }

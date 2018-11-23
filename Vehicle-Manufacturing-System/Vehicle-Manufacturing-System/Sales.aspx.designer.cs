@@ -10,7 +10,7 @@
 namespace Vehicle_Manufacturing_System {
     
     
-    public partial class Sales {
+    public partial class Accounts {
         
         /// <summary>
         /// form1 control.
@@ -22,13 +22,13 @@ namespace Vehicle_Manufacturing_System {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// label_id control.
+        /// Label_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label_id;
+        protected global::System.Web.UI.WebControls.Label Label_id;
         
         /// <summary>
         /// Label_post control.
@@ -40,15 +40,6 @@ namespace Vehicle_Manufacturing_System {
         protected global::System.Web.UI.WebControls.Label Label_post;
         
         /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-        
-        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>
@@ -58,31 +49,13 @@ namespace Vehicle_Manufacturing_System {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// text_id control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox text_id;
-        
-        /// <summary>
-        /// text_no_task control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox text_no_task;
-        
-        /// <summary>
-        /// Button_up_task control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_up_task;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
         /// GridView2 control.
@@ -94,13 +67,13 @@ namespace Vehicle_Manufacturing_System {
         protected global::System.Web.UI.WebControls.GridView GridView2;
         
         /// <summary>
-        /// button_add_sale control.
+        /// add_car control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button_add_sale;
+        protected global::System.Web.UI.WebControls.Button add_car;
         
         /// <summary>
         /// CheckBox1 control.
@@ -121,31 +94,49 @@ namespace Vehicle_Manufacturing_System {
         protected global::System.Web.UI.WebControls.Label info1;
         
         /// <summary>
-        /// C1 control.
+        /// car_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox C1;
+        protected global::System.Web.UI.WebControls.TextBox car_id;
         
         /// <summary>
-        /// info2 control.
+        /// name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label info2;
+        protected global::System.Web.UI.WebControls.TextBox name;
         
         /// <summary>
-        /// S1 control.
+        /// model control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox S1;
+        protected global::System.Web.UI.WebControls.TextBox model;
+        
+        /// <summary>
+        /// horsepower control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox horsepower;
+        
+        /// <summary>
+        /// price control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox price;
         
         /// <summary>
         /// Button_Submit control.

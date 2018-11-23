@@ -48,7 +48,7 @@ namespace Vehicle_Manufacturing_System
                     }
                     else if (userdept == 2)
                     {
-                        Response.Redirect("Accounting.aspx?loginperson=" + User_ID_text.Text);
+                        Response.Redirect("Accounts.aspx?loginperson=" + User_ID_text.Text);
                         conc.Close();
                     }
                     else if (userdept == 4)
@@ -78,9 +78,5 @@ namespace Vehicle_Manufacturing_System
 
         }
 
-        protected void User_ID_text_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

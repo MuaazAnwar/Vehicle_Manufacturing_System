@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace Vehicle_Manufacturing_System
 {
-    public partial class Sales : System.Web.UI.Page
+    public partial class Accounts : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,31 +20,28 @@ namespace Vehicle_Manufacturing_System
             conc.Open();
             String qurey = "select job from employee where emp_id='" + loginperson + "'";
             SqlCommand cmd = new SqlCommand(qurey, conc);
-            string post = cmd.ExecuteScalar().ToString().Replace(" ","");
-            label_id.Text = "ID: " + loginperson;
-            
-            Label_post.Text="Post: "+post;
+            string post = cmd.ExecuteScalar().ToString().Replace(" ", "");
+            Label_id.Text = "ID: " + loginperson;
+
+            Label_post.Text = "Post: " + post;
             Debug.WriteLine("Hello, world!" + post);
-            
+
             conc.Close();
-            C1.Visible = false;
-            S1.Visible = false;
             Button_Submit.Visible = false;
             CheckBox1.Visible = false;
             info1.Visible = false;
-            info2.Visible = false;
-            if(post=="clerk"){
-            button_add_sale.Visible=false;
+            
+            if (post == "clerk")
+            {
+                add_car.Visible = false;
             }
             SqlDataSource SqlDataSource2 = new SqlDataSource();
             SqlDataSource2.ID = "SqlDataSource2";
             this.Page.Controls.Add(SqlDataSource2);
             SqlDataSource2.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString;
-            SqlDataSource2.SelectCommand = "SELECT * from Department";
+            SqlDataSource2.SelectCommand = "SELECT First_Name,Task_Assign from Employee where Manager_id='"+loginperson+"'";
             GridView2.DataSource = SqlDataSource2;
             GridView2.DataBind();
-    
-
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,76 +49,48 @@ namespace Vehicle_Manufacturing_System
 
         }
 
-        protected void button_add_sale_Click(object sender, EventArgs e)
-        {
-            CheckBox1.Visible = true;
-            C1.Visible = true;
-            S1.Visible = true;
-            info1.Visible = true;
-            info2.Visible = true;
-            Button_Submit.Visible = true;
-        }
-
-        protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            
-           
+
         }
 
-        protected void Button_Submit_Click(object sender, EventArgs e)
+       
+        protected void Button_submit_Click(object sender, EventArgs e)
         {
             SqlConnection conc = new SqlConnection(ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString);
             conc.Open();
-            
+
             if (CheckBox1.Checked)
             {
-                String qurey = "insert into Employee (emp_id) values(@id)";
-                SqlCommand cmd = new SqlCommand(qurey, conc);
-                cmd.Parameters.AddWithValue("@id", S1.Text);
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString);
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("insert into Car values('" + car_id.Text + "','" + name.Text + "','" + model.Text + "','" + horsepower.Text + "','" + price.Text + "')", con);
                 cmd.ExecuteNonQuery();
+                con.Close();
+                car_id.Text = "";
+                name.Text = "";
+                model.Text = "";
+                horsepower.Text = "";
+                price.Text = "";
 
             }
-            else{
-                Response.Write("Customer info is not added");
-                }
-            conc.Close();
-
-        }
-
-
-        protected void Button_up_task_Click(object sender, EventArgs e)
-        {
-            SqlConnection conc = new SqlConnection(ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString);
-            conc.Open();
-            string checkdept = "select Department_No from employee where emp_id='" + text_id.Text + "'";
-            SqlCommand cmd2 = new SqlCommand(checkdept, conc);
-            int userdept = Convert.ToInt32(cmd2.ExecuteScalar().ToString());
-            if (userdept == 4)
+            else
             {
-
-                string qurey = "update emp set Task_Assign='" + text_no_task.Text + "'";
-                SqlCommand cmd = new SqlCommand(qurey, conc);
-                cmd.ExecuteNonQuery();
+                Response.Write("Customer info is not added");
             }
-            else Response.Write("invalid Employee is selected");
             conc.Close();
-
-
         }
+
+        protected void add_car_Click(object sender, EventArgs e)
+        {
+            CheckBox1.Visible = true;
+            info1.Visible = true;
+
+            Button_Submit.Visible = true;
+        }
+
+        
     }
 }
