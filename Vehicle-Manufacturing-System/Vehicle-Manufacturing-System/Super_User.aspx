@@ -41,6 +41,8 @@
             <SortedDescendingHeaderStyle BackColor="#575357" />
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBconnect %>" SelectCommand="SELECT * FROM [Employee]"></asp:SqlDataSource>
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
     </form>
 </body>
 </html>

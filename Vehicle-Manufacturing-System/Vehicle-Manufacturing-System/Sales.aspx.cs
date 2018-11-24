@@ -7,12 +7,21 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Diagnostics;
+using System.Text;
 
 
 namespace Vehicle_Manufacturing_System
 {
     public partial class Accounts : System.Web.UI.Page
     {
+        string loginid;
+        string tpost;
+        string colorid;
+        string carid;
+        string mettalic="mettalic";
+        string gloss = "gloss";
+        string matte = "matte";
+        StringBuilder errorMessages = new StringBuilder();
         protected void Page_Load(object sender, EventArgs e)
         {
             string loginperson = Request.QueryString["loginperson"];
@@ -22,75 +31,228 @@ namespace Vehicle_Manufacturing_System
             SqlCommand cmd = new SqlCommand(qurey, conc);
             string post = cmd.ExecuteScalar().ToString().Replace(" ", "");
             Label_id.Text = "ID: " + loginperson;
-
+            tpost = post;
+            loginid = loginperson;
             Label_post.Text = "Post: " + post;
-            Debug.WriteLine("Hello, world!" + post);
+           
 
             conc.Close();
-            Button_Submit.Visible = false;
-            CheckBox1.Visible = false;
-            info1.Visible = false;
-            
-            if (post == "clerk")
-            {
-                add_car.Visible = false;
-            }
+
+
             SqlDataSource SqlDataSource2 = new SqlDataSource();
             SqlDataSource2.ID = "SqlDataSource2";
             this.Page.Controls.Add(SqlDataSource2);
             SqlDataSource2.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString;
-            SqlDataSource2.SelectCommand = "SELECT First_Name,Task_Assign from Employee where Manager_id='"+loginperson+"'";
+            SqlDataSource2.SelectCommand = "SELECT emp_id,First_Name,Last_Name,Task_Assign from Employee where Manager_Id='" + loginid + "'";
             GridView2.DataSource = SqlDataSource2;
             GridView2.DataBind();
         }
 
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
        
         protected void Button_submit_Click(object sender, EventArgs e)
         {
+
+           if (tpost == "Clerk")
+            {
+                Response.Write("Error: rights issue");
+            }
+           
+            else
+            {
+                SqlConnection conc = new SqlConnection(ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString);
+                conc.Open();
+
+                if (CheckBox1.Checked)
+                {
+                    String qurey = "insert into Car values(@id1,@id2,@id3,@id4,@id5)";
+                    SqlCommand cmd = new SqlCommand(qurey, conc);
+                    cmd.Parameters.AddWithValue("@id1", TextBox1.Text);
+                    cmd.Parameters.AddWithValue("@id2", TextBox2.Text);
+                    cmd.Parameters.AddWithValue("@id3", TextBox3.Text);
+                    cmd.Parameters.AddWithValue("@id4", TextBox4.Text);
+                    cmd.Parameters.AddWithValue("@id5", TextBox5.Text);
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        colorid = colour_id.Text;
+                        carid = TextBox1.Text;
+                        updatetable();
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        for (int i = 0; i < ex.Errors.Count; i++)
+                        {
+                            errorMessages.Append("Index #" + i + "\n" +
+                                "Message: " + ex.Errors[i].Message + "\n" +
+                                "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                "Source: " + ex.Errors[i].Source + "\n" +
+                                "Procedure: " + ex.Errors[i].Procedure + "\n");
+                        }
+                        Response.Write(errorMessages.ToString());
+                    }
+
+
+
+                }
+                else if (!CheckBox1.Checked)
+                {
+
+
+                    if (type.Text == mettalic || type.Text == matte || type.Text == gloss)
+                    {
+                        String qurey = "insert into Colour values(@id6,@id7,@id8)";
+                        SqlCommand cmd = new SqlCommand(qurey, conc);
+                        cmd.Parameters.AddWithValue("@id6", colour_id.Text);
+                        cmd.Parameters.AddWithValue("@id7", name.Text);
+                        cmd.Parameters.AddWithValue("@id8", type.Text);
+
+                        try
+                        {
+                            
+                            colorid = colour_id.Text;
+                        }
+                        catch (SqlException ex)
+                        {
+
+                            for (int i = 0; i < ex.Errors.Count; i++)
+                            {
+                                errorMessages.Append("Index #" + i + "\n" +
+                                    "Message: " + ex.Errors[i].Message + "\n" +
+                                    "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                    "Source: " + ex.Errors[i].Source + "\n" +
+                                    "Procedure: " + ex.Errors[i].Procedure + "\n");
+                            }
+                            Response.Write(errorMessages.ToString());
+                        }
+                        qurey = "insert into Car values(@id1,@id2,@id3,@id4,@id5)";
+                        SqlCommand cmd1 = new SqlCommand(qurey, conc);
+                        cmd1.Parameters.AddWithValue("@id1", TextBox1.Text);
+                        cmd1.Parameters.AddWithValue("@id2", TextBox2.Text);
+                        cmd1.Parameters.AddWithValue("@id3", TextBox3.Text);
+                        cmd1.Parameters.AddWithValue("@id4", TextBox4.Text);
+                        cmd1.Parameters.AddWithValue("@id5", TextBox5.Text);
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                            cmd1.ExecuteNonQuery();
+                            carid = TextBox1.Text;
+                            updatetable();
+                        }
+                        catch (SqlException ex)
+                        {
+
+                            for (int i = 0; i < ex.Errors.Count; i++)
+                            {
+                                errorMessages.Append("Index #" + i + "\n" +
+                                    "Message: " + ex.Errors[i].Message + "\n" +
+                                    "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                    "Source: " + ex.Errors[i].Source + "\n" +
+                                    "Procedure: " + ex.Errors[i].Procedure + "\n");
+                            }
+                            Response.Write(errorMessages.ToString());
+                        }
+                        conc.Close();
+
+                    }
+                    else
+                    {
+                        Response.Write("Domain Problem");
+                    }
+
+                }
+            }
+
+
+
+        }
+
+        protected void updatetable()
+        {
             SqlConnection conc = new SqlConnection(ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString);
             conc.Open();
 
-            if (CheckBox1.Checked)
-            {
-                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString);
-                con.Open();
+            String qurey = "insert into CCR values(@id11,@id12)";
+            SqlCommand cmd = new SqlCommand(qurey, conc);
+            cmd.Parameters.AddWithValue("@id11",carid);
+            cmd.Parameters.AddWithValue("@id12",colorid);
+            cmd.ExecuteNonQuery();
+            GridView1.DataBind();
 
-                SqlCommand cmd = new SqlCommand("insert into Car values('" + car_id.Text + "','" + name.Text + "','" + model.Text + "','" + horsepower.Text + "','" + price.Text + "')", con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                car_id.Text = "";
-                name.Text = "";
-                model.Text = "";
-                horsepower.Text = "";
-                price.Text = "";
-
-            }
-            else
-            {
-                Response.Write("Customer info is not added");
-            }
             conc.Close();
-        }
 
-        protected void add_car_Click(object sender, EventArgs e)
+        }
+     
+        protected void Button1_Click(object sender, EventArgs e)
         {
-            CheckBox1.Visible = true;
-            info1.Visible = true;
+               SqlConnection conc = new SqlConnection(ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString);
+            conc.Open();
+            string checkdept = "select Department_No from employee where emp_id='" +TextBox_Id.Text+ "'";
+            SqlCommand cmd2 = new SqlCommand(checkdept, conc);
+            int temp=0;
+          
+                
+             try
+                    {
+                       int userdept = Convert.ToInt32(cmd2.ExecuteScalar().ToString());
+                       temp = userdept;
+                    }
+                    catch (SqlException ex)
+                    
+                    {
+                        
+            for (int i = 0; i < ex.Errors.Count; i++)
+            {
+                errorMessages.Append("Index #" + i + "\n" +
+                    "Message: " + ex.Errors[i].Message + "\n" +
+                    "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                    "Source: " + ex.Errors[i].Source + "\n" +
+                    "Procedure: " + ex.Errors[i].Procedure + "\n");
+            }
+            Response.Write(errorMessages.ToString());
+        }
+                    
+            if (temp == 4)
+            {
 
-            Button_Submit.Visible = true;
+           
+           
+             string qurey = "update employee set Task_Assign='" +TextBox_Assign_task.Text + "' where emp_id='"+TextBox_Id.Text+"'";
+             SqlCommand cmd = new SqlCommand(qurey, conc);
+             try
+             {
+                 cmd.ExecuteNonQuery();
+                 GridView2.DataBind();
+
+             }
+             catch (SqlException ex)
+             {
+                 for (int i = 0; i < ex.Errors.Count; i++)
+            {
+                errorMessages.Append("Index #" + i + "\n" +
+                    "Message: " + ex.Errors[i].Message + "\n" +
+                    "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                    "Source: " + ex.Errors[i].Source + "\n" +
+                    "Procedure: " + ex.Errors[i].Procedure + "\n");
+            }
+            Response.Write(errorMessages.ToString());
+             }
+                    
+            }
+            else Response.Write("invalid Employee is selected");
+            conc.Close();
+            
+            
+
+
         }
 
-        
+       
+
     }
-}
+        }
+
+     
+        

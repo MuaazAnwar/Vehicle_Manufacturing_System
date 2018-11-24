@@ -18,5 +18,19 @@ namespace Vehicle_Manufacturing_System
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string abc="muaaz";
+            string bcd = "Anwar";
+            string efg = "28A";
+
+            if (TextBox1.Text == abc || TextBox1.Text == bcd || TextBox1.Text == efg)
+            {
+                Response.Write("text not equal");
+                Response.Write("you wrote" + TextBox1.Text);
+            }
+            }
+
+        }
     }
-}

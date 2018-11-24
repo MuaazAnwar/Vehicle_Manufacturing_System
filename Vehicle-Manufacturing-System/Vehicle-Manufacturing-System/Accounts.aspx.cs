@@ -104,7 +104,7 @@ namespace Vehicle_Manufacturing_System
                     cmd.Parameters.AddWithValue("@id11", city.Text);
                     try
                     {
-                        cmd.ExecuteNonQuery();
+                        
                         GridView1.DataBind();
                     }
                     catch (SqlException ex)
@@ -130,6 +130,7 @@ namespace Vehicle_Manufacturing_System
                     cmd1.Parameters.AddWithValue("@yr", TextBox6.Text);
                     try
                     {
+                        cmd.ExecuteNonQuery();
                         cmd1.ExecuteNonQuery();
                         GridView1.DataBind();
 

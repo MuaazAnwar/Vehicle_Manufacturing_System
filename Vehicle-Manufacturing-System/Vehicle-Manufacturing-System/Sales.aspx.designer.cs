@@ -67,13 +67,31 @@ namespace Vehicle_Manufacturing_System {
         protected global::System.Web.UI.WebControls.GridView GridView2;
         
         /// <summary>
-        /// add_car control.
+        /// TextBox_Id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button add_car;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Id;
+        
+        /// <summary>
+        /// TextBox_Assign_task control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Assign_task;
+        
+        /// <summary>
+        /// Button_up control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_up;
         
         /// <summary>
         /// CheckBox1 control.
@@ -85,22 +103,13 @@ namespace Vehicle_Manufacturing_System {
         protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
         
         /// <summary>
-        /// info1 control.
+        /// colour_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label info1;
-        
-        /// <summary>
-        /// car_id control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox car_id;
+        protected global::System.Web.UI.WebControls.TextBox colour_id;
         
         /// <summary>
         /// name control.
@@ -112,31 +121,67 @@ namespace Vehicle_Manufacturing_System {
         protected global::System.Web.UI.WebControls.TextBox name;
         
         /// <summary>
-        /// model control.
+        /// type control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox model;
+        protected global::System.Web.UI.WebControls.TextBox type;
         
         /// <summary>
-        /// horsepower control.
+        /// info1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox horsepower;
+        protected global::System.Web.UI.WebControls.Label info1;
         
         /// <summary>
-        /// price control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox price;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        
+        /// <summary>
+        /// TextBox2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        
+        /// <summary>
+        /// TextBox3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        
+        /// <summary>
+        /// TextBox4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        
+        /// <summary>
+        /// TextBox5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox5;
         
         /// <summary>
         /// Button_Submit control.
