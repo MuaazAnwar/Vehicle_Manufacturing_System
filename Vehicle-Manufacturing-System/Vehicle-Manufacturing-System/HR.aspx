@@ -10,7 +10,7 @@
         {
             width: 89%;
             margin-bottom: 0px;
-            height: 895px;
+            height: 878px;
         }
         .auto-style3
         {
@@ -47,6 +47,13 @@
         .auto-style7
         {
             height: 11px;
+        }
+        .auto-style10 {
+            width: 157px;
+            height: 1px;
+        }
+        .auto-style11 {
+            height: 1px;
         }
     </style>
 </head>
@@ -88,7 +95,9 @@
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBconnect %>" SelectCommand="SELECT [emp_id], [First_Name], [Last_Name], [job], [Manager_Id], [Task_Assign], [Gender], [Department_No], [Commision], [Salary], [House_No], [Area], [Town], [City] FROM [Employee]"></asp:SqlDataSource>
                     <br />
                     <br />
-                    <asp:Button ID="Button_add_emp" runat="server" OnClick="Button1_Click1" style="text-align: center; margin-left: 443px" Text="Add New Employee" />
+                    <asp:TextBox ID="TextBox1" runat="server" Height="16px" style="margin-left: 315px" Width="127px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server" style="margin-left: 93px" Width="116px"></asp:TextBox>
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click2" style="margin-left: 127px" Text="Submit" />
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
                     <br />
@@ -102,7 +111,7 @@
                         <tr>
                             <td class="auto-style5">First Name</td>
                             <td>
-                                <asp:TextBox ID="fname" runat="server" Height="16px" style="margin-left: 0px" Width="787px"></asp:TextBox>
+                                <asp:TextBox ID="fname" runat="server" Height="16px" style="margin-left: 0px" Width="787px" OnTextChanged="fname_TextChanged"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -112,27 +121,15 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style5">Job</td>
-                            <td>
+                            <td class="auto-style10">Job</td>
+                            <td class="auto-style11">
                                 <asp:TextBox ID="job" runat="server" Height="16px" style="margin-left: 0px" Width="787px"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style5">Password</td>
-                            <td>
-                                <asp:TextBox ID="passsword" runat="server" Height="16px" style="margin-left: 0px" Width="787px"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style5">Manager ID</td>
-                            <td>
+                            <td class="auto-style8">Manager ID</td>
+                            <td class="auto-style9">
                                 <asp:TextBox ID="mgr_id" runat="server" Height="16px" style="margin-left: 0px" Width="787px"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style5">Task Assign</td>
-                            <td>
-                                <asp:TextBox ID="task_ass" runat="server" Height="16px" style="margin-left: 0px" Width="787px"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
