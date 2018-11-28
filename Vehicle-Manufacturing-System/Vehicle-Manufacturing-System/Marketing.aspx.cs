@@ -61,12 +61,183 @@ namespace Vehicle_Manufacturing_System
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            TextBox3.Text = DropDownList1.SelectedValue;
+             
+            SqlDataSource SqlDataSource3 = new SqlDataSource();
+            SqlDataSource3.ID = "SqlDataSource3";
+            this.Page.Controls.Add(SqlDataSource3);
+            SqlDataSource3.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString;
+            SqlDataSource3.SelectCommand = "SELECT * from "+DropDownList1.SelectedValue ;
+            GridView3.DataSource = SqlDataSource3;
+            GridView3.DataBind();
         }
 
         protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            SqlConnection conc = new SqlConnection(ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString);
+            conc.Open();
+
+            if (DropDownList1.SelectedValue == "Employee")
+            {
+                string qurey = "Delete employee where emp_id='" + TextBox3.Text + "'";
+
+                SqlCommand cmd = new SqlCommand(qurey, conc);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    GridView1.DataBind();
+                    GridView2.DataBind();
+                    GridView3.DataBind();
+                }
+                catch (SqlException ex)
+                {
+
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        errorMessages.Append("Index #" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    Response.Write(errorMessages.ToString());
+                }
+            }
+            else if (DropDownList1.SelectedValue == "Department")
+            {
+                string qurey = "Delete employee where emp_id='" + TextBox3.Text + "'";
+
+                SqlCommand cmd = new SqlCommand(qurey, conc);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    GridView1.DataBind();
+                    GridView2.DataBind();
+                    GridView3.DataBind();
+                }
+                catch (SqlException ex)
+                {
+
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        errorMessages.Append("Index #" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    Response.Write(errorMessages.ToString());
+                }
+            }
+            else if (DropDownList1.SelectedValue == "Colour")
+            {
+                string qurey = "Delete employee where emp_id='" + TextBox3.Text + "'";
+
+                SqlCommand cmd = new SqlCommand(qurey, conc);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    GridView1.DataBind();
+                    GridView2.DataBind();
+                    GridView3.DataBind();
+                }
+                catch (SqlException ex)
+                {
+
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        errorMessages.Append("Index #" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    Response.Write(errorMessages.ToString());
+                }
+            }
+            else if (DropDownList1.SelectedValue == "Customer")
+            {
+                string qurey = "Delete employee where emp_id='" + TextBox3.Text + "'";
+
+                SqlCommand cmd = new SqlCommand(qurey, conc);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    GridView1.DataBind();
+                    GridView2.DataBind();
+                    GridView3.DataBind();
+                }
+                catch (SqlException ex)
+                {
+
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        errorMessages.Append("Index #" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    Response.Write(errorMessages.ToString());
+                }
+            }
+            else if (DropDownList1.SelectedValue == "Car_Sold")
+            {
+                string qurey = "Delete employee where emp_id='" + TextBox3.Text + "'";
+
+                SqlCommand cmd = new SqlCommand(qurey, conc);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    GridView1.DataBind();
+                    GridView2.DataBind();
+                    GridView3.DataBind();
+                }
+                catch (SqlException ex)
+                {
+
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        errorMessages.Append("Index #" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    Response.Write(errorMessages.ToString());
+                }
+            }
+            else if (DropDownList1.SelectedValue == "Car")
+            {
+                string qurey = "Delete employee where emp_id='" + TextBox3.Text + "'";
+
+                SqlCommand cmd = new SqlCommand(qurey, conc);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    GridView1.DataBind();
+                    GridView2.DataBind();
+                    GridView3.DataBind();
+                }
+                catch (SqlException ex)
+                {
+
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        errorMessages.Append("Index #" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    Response.Write(errorMessages.ToString());
+                }
+            }
+           
         }
 
      

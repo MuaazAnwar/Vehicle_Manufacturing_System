@@ -85,7 +85,7 @@
             &emsp;&emsp;&emsp;
             <asp:Label ID="Label2" runat="server" Text="PK of Table:"></asp:Label>
             <asp:TextBox ID="TextBox3" runat="server" style="margin-left: 153px"></asp:TextBox>
-            <asp:Button ID="Button3" runat="server" style="margin-left: 231px" Text="Delete" />
+            <asp:Button ID="Button3" runat="server" style="margin-left: 231px" Text="Delete" OnClick="Button3_Click" />
         </p>
     </form>
 </body>
