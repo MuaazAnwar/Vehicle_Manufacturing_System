@@ -1,20 +1,20 @@
 ﻿<%@ Page Theme="Theme"Language="C#" AutoEventWireup="true" CodeBehind="Marketing.aspx.cs" Inherits="Vehicle_Manufacturing_System.Marketing" %>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body style="text-align: center">
     <form id="form1" runat="server">
     <div style="text-align: center">
     
-        Marketing Form <br />
+        <h2>Marketing Form</h2> <br />
         </div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="label_id" runat="server" Text="Label"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="label_id" runat="server" Text="Label" Font-Bold="True" Font-Size="Large"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label_post" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="Label_post" runat="server" Text="Label" Font-Bold="True" Font-Size="Large"></asp:Label>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" style="margin-left: 216px; margin-top: 32px" Width="663px" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
@@ -40,7 +40,8 @@
             <SortedDescendingHeaderStyle BackColor="#820000" />
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DBconnect %>" SelectCommand="SELECT Customer.first_name, Customer.Area, Customer.Town, Customer.City, Car_sold.instalment_year, Car_sold.date_of_purchase, Car.Name, Car.Model, Colour.Colour_name, Colour.Colour_type FROM Customer INNER JOIN Car_sold ON Customer.Customer_id = Car_sold.customer_id INNER JOIN CCR ON Car_sold.car_id = CCR.Car_id AND Car_sold.colour_id = CCR.Colour_id INNER JOIN Colour ON CCR.Colour_id = Colour.Colour_id INNER JOIN Car ON CCR.Car_id = Car.Car_id"></asp:SqlDataSource>
-        <asp:GridView ID="GridView2" runat="server" style="margin-left: 110px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:GridView ID="GridView2" runat="server" style="margin-left: 214px" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
             <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
             <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
@@ -51,12 +52,16 @@
             <SortedDescendingHeaderStyle BackColor="#242121" />
         </asp:GridView>
         <br />
-        <asp:TextBox ID="TextBox1" runat="server" style="margin-left: 204px"></asp:TextBox>
-        <asp:TextBox ID="TextBox2" runat="server" style="margin-left: 119px"></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" style="margin-left: 182px" Text="Button" />
+        <asp:TextBox ID="TextBox1" runat="server" style="margin-left: 204px">ID</asp:TextBox>
+        <cc1:FilteredTextBoxExtender ID="TextBox1_FilteredTextBoxExtender" runat="server" BehaviorID="TextBox1_FilteredTextBoxExtender" FilterType="Numbers" TargetControlID="TextBox1">
+        </cc1:FilteredTextBoxExtender>
+        <asp:TextBox ID="TextBox2" runat="server" style="margin-left: 119px">No of Tasks</asp:TextBox>
+        <cc1:FilteredTextBoxExtender ID="TextBox2_FilteredTextBoxExtender" runat="server" BehaviorID="TextBox2_FilteredTextBoxExtender" FilterType="Numbers" TargetControlID="TextBox2">
+        </cc1:FilteredTextBoxExtender>
+        <asp:Button ID="Button1" runat="server" style="margin-left: 182px" Text="Update" OnClick="Button1_Click" />
         <br />
         <br />
-        <asp:GridView ID="GridView3" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView3_SelectedIndexChanged" style="margin-left: 112px">
+        <asp:GridView ID="GridView3" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView3_SelectedIndexChanged" style="margin-left: 207px">
             <AlternatingRowStyle BackColor="White" />
             <EditRowStyle BackColor="#7C6F57" />
             <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -80,13 +85,17 @@
             <asp:ListItem>Colour</asp:ListItem>
             <asp:ListItem>Car</asp:ListItem>
         </asp:DropDownList>
-        <asp:Button ID="Button2" runat="server" style="margin-left: 238px" Text="Show" OnClick="Button2_Click" />
+        <asp:Button ID="Button2" runat="server" style="margin-left: 260px" Text="Show" OnClick="Button2_Click" />
         <p>
             &emsp;&emsp;&emsp;
             <asp:Label ID="Label2" runat="server" Text="PK of Table:"></asp:Label>
             <asp:TextBox ID="TextBox3" runat="server" style="margin-left: 153px"></asp:TextBox>
+            <cc1:FilteredTextBoxExtender ID="TextBox3_FilteredTextBoxExtender" runat="server" BehaviorID="TextBox3_FilteredTextBoxExtender" FilterType="Numbers" TargetControlID="TextBox3">
+            </cc1:FilteredTextBoxExtender>
             <asp:Button ID="Button3" runat="server" style="margin-left: 231px" Text="Delete" OnClick="Button3_Click" />
         </p>
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
     </form>
 </body>
 </html>

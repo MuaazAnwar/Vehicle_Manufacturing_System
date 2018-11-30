@@ -76,6 +76,15 @@ namespace Vehicle_Manufacturing_System {
         protected global::System.Web.UI.WebControls.TextBox TextBox_Id;
         
         /// <summary>
+        /// TextBox_Id_FilteredTextBoxExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender TextBox_Id_FilteredTextBoxExtender;
+        
+        /// <summary>
         /// TextBox_Assign_task control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace Vehicle_Manufacturing_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox_Assign_task;
+        
+        /// <summary>
+        /// TextBox_Assign_task_FilteredTextBoxExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender TextBox_Assign_task_FilteredTextBoxExtender;
         
         /// <summary>
         /// Button_up control.
@@ -112,6 +130,15 @@ namespace Vehicle_Manufacturing_System {
         protected global::System.Web.UI.WebControls.TextBox colour_id;
         
         /// <summary>
+        /// colour_id_FilteredTextBoxExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender colour_id_FilteredTextBoxExtender;
+        
+        /// <summary>
         /// name control.
         /// </summary>
         /// <remarks>
@@ -121,6 +148,15 @@ namespace Vehicle_Manufacturing_System {
         protected global::System.Web.UI.WebControls.TextBox name;
         
         /// <summary>
+        /// name_FilteredTextBoxExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender name_FilteredTextBoxExtender;
+        
+        /// <summary>
         /// type control.
         /// </summary>
         /// <remarks>
@@ -128,6 +164,15 @@ namespace Vehicle_Manufacturing_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox type;
+        
+        /// <summary>
+        /// type_FilteredTextBoxExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender type_FilteredTextBoxExtender;
         
         /// <summary>
         /// info1 control.
@@ -148,6 +193,15 @@ namespace Vehicle_Manufacturing_System {
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
+        /// TextBox1_FilteredTextBoxExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender TextBox1_FilteredTextBoxExtender;
+        
+        /// <summary>
         /// TextBox2 control.
         /// </summary>
         /// <remarks>
@@ -155,6 +209,15 @@ namespace Vehicle_Manufacturing_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        
+        /// <summary>
+        /// TextBox2_FilteredTextBoxExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender TextBox2_FilteredTextBoxExtender;
         
         /// <summary>
         /// TextBox3 control.
@@ -166,6 +229,15 @@ namespace Vehicle_Manufacturing_System {
         protected global::System.Web.UI.WebControls.TextBox TextBox3;
         
         /// <summary>
+        /// TextBox3_FilteredTextBoxExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender TextBox3_FilteredTextBoxExtender;
+        
+        /// <summary>
         /// TextBox4 control.
         /// </summary>
         /// <remarks>
@@ -173,6 +245,15 @@ namespace Vehicle_Manufacturing_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        
+        /// <summary>
+        /// TextBox4_FilteredTextBoxExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender TextBox4_FilteredTextBoxExtender;
         
         /// <summary>
         /// TextBox5 control.
@@ -184,6 +265,15 @@ namespace Vehicle_Manufacturing_System {
         protected global::System.Web.UI.WebControls.TextBox TextBox5;
         
         /// <summary>
+        /// TextBox5_FilteredTextBoxExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender TextBox5_FilteredTextBoxExtender;
+        
+        /// <summary>
         /// Button_Submit control.
         /// </summary>
         /// <remarks>
@@ -191,5 +281,14 @@ namespace Vehicle_Manufacturing_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Submit;
+        
+        /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
     }
 }

@@ -49,7 +49,7 @@ namespace Vehicle_Manufacturing_System
             SqlDataSource2.ID = "SqlDataSource2";
             this.Page.Controls.Add(SqlDataSource2);
             SqlDataSource2.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString;
-            SqlDataSource2.SelectCommand = "SELECT emp_id,First_Name,Last_Name,Task_Assign from Employee where Manager_Id='" + loginid + "'";
+            SqlDataSource2.SelectCommand = "SELECT emp_id,First_Name,Last_Name,Task_Assign,Department_No from Employee where Manager_Id='" + loginid + "'";
             GridView2.DataSource = SqlDataSource2;
             GridView2.DataBind();
         }
@@ -109,7 +109,7 @@ namespace Vehicle_Manufacturing_System
             }
             else if (DropDownList1.SelectedValue == "Department")
             {
-                string qurey = "Delete employee where emp_id='" + TextBox3.Text + "'";
+                string qurey = "Delete Department where deptno='" + TextBox3.Text + "'";
 
                 SqlCommand cmd = new SqlCommand(qurey, conc);
                 try
@@ -135,7 +135,7 @@ namespace Vehicle_Manufacturing_System
             }
             else if (DropDownList1.SelectedValue == "Colour")
             {
-                string qurey = "Delete employee where emp_id='" + TextBox3.Text + "'";
+                string qurey = "Delete Colour where Colour_id='" + TextBox3.Text + "'";
 
                 SqlCommand cmd = new SqlCommand(qurey, conc);
                 try
@@ -161,7 +161,7 @@ namespace Vehicle_Manufacturing_System
             }
             else if (DropDownList1.SelectedValue == "Customer")
             {
-                string qurey = "Delete employee where emp_id='" + TextBox3.Text + "'";
+                string qurey = "Delete Customer where Customer_id='" + TextBox3.Text + "'";
 
                 SqlCommand cmd = new SqlCommand(qurey, conc);
                 try
@@ -187,7 +187,7 @@ namespace Vehicle_Manufacturing_System
             }
             else if (DropDownList1.SelectedValue == "Car_Sold")
             {
-                string qurey = "Delete employee where emp_id='" + TextBox3.Text + "'";
+                string qurey = "Delete Car_sold where chassis_no='" + TextBox3.Text + "'";
 
                 SqlCommand cmd = new SqlCommand(qurey, conc);
                 try
@@ -213,7 +213,7 @@ namespace Vehicle_Manufacturing_System
             }
             else if (DropDownList1.SelectedValue == "Car")
             {
-                string qurey = "Delete employee where emp_id='" + TextBox3.Text + "'";
+                string qurey = "Delete Car where Car_id='" + TextBox3.Text + "'";
 
                 SqlCommand cmd = new SqlCommand(qurey, conc);
                 try
@@ -238,6 +238,65 @@ namespace Vehicle_Manufacturing_System
                 }
             }
            
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            SqlConnection conc = new SqlConnection(ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString);
+            conc.Open();
+            string checkdept = "select Department_No from employee where emp_id='" + TextBox1.Text + "'";
+            SqlCommand cmd2 = new SqlCommand(checkdept, conc);
+            int temp = 0;
+
+
+            try
+            {
+                if (cmd2.ExecuteScalar() != null)
+                    temp = Convert.ToInt32(cmd2.ExecuteScalar().ToString()); 
+            }
+            catch (SqlException ex)
+            {
+
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append("Index #" + i + "\n" +
+                        "Message: " + ex.Errors[i].Message + "\n" +
+                        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                        "Source: " + ex.Errors[i].Source + "\n" +
+                        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+                Response.Write(errorMessages.ToString());
+            }
+
+            if (temp == 7 || tpost == "President")
+            {
+
+
+
+                string qurey = "update employee set Task_Assign='" + TextBox2.Text + "' where emp_id='" + TextBox1.Text + "'";
+                SqlCommand cmd = new SqlCommand(qurey, conc);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    GridView2.DataBind();
+
+                }
+                catch (SqlException ex)
+                {
+                    for (int i = 0; i < ex.Errors.Count; i++)
+                    {
+                        errorMessages.Append("Index #" + i + "\n" +
+                            "Message: " + ex.Errors[i].Message + "\n" +
+                            "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                            "Source: " + ex.Errors[i].Source + "\n" +
+                            "Procedure: " + ex.Errors[i].Procedure + "\n");
+                    }
+                    Response.Write(errorMessages.ToString());
+                }
+
+            }
+            else Response.Write("invalid Employee is selected");
+            conc.Close();
         }
 
      

@@ -20,7 +20,7 @@ namespace Vehicle_Manufacturing_System
         StringBuilder errorMessages = new StringBuilder();
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (tpost == "Clerk")
+            if (tpost == "Clerk" || tpost == "Officer")
             {
                 Response.Write("Error: rights issue");
             }
@@ -233,8 +233,8 @@ namespace Vehicle_Manufacturing_System
 
             try
             {
-                int userdept = Convert.ToInt32(cmd2.ExecuteScalar().ToString());
-                temp = userdept;
+                if (cmd2.ExecuteScalar() != null)
+                    temp = Convert.ToInt32(cmd2.ExecuteScalar().ToString());
             }
             catch (SqlException ex)
             {

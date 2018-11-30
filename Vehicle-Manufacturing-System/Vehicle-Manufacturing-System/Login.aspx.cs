@@ -31,6 +31,11 @@ namespace Vehicle_Manufacturing_System
                 
                 String checkpass = "select Password from employee where emp_id='" + User_ID_text.Text + "'";
                 SqlCommand cmd1 = new SqlCommand(checkpass, conc);
+                if (cmd1.ExecuteScalar() == null)
+                {
+                   Response.Write("Sorry no interface availabe.......");
+                   return;
+                }
                 string password = cmd1.ExecuteScalar().ToString().Replace(" ","");
                 if (password == Password_text.Text)
                 {
