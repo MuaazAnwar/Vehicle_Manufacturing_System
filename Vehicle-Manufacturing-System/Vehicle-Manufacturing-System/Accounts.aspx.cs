@@ -33,16 +33,23 @@ namespace Vehicle_Manufacturing_System
             
             
             conc.Close();
-           
-          
-            SqlDataSource SqlDataSource2 = new SqlDataSource();
-            SqlDataSource2.ID = "SqlDataSource2";
-            this.Page.Controls.Add(SqlDataSource2);
-            SqlDataSource2.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString;
-            SqlDataSource2.SelectCommand = "SELECT emp_id,First_Name,Last_Name,Task_Assign from Employee where Manager_Id='" + loginid + "'";
-            GridView2.DataSource = SqlDataSource2;
-            GridView2.DataBind();
-    
+            if (tpost == "Clerk" || tpost == "Officer")
+            {
+                text_id.Visible = false;
+                text_no_task.Visible = false;
+                Button_up_task.Visible = false;
+            }
+            else
+            {
+
+                SqlDataSource SqlDataSource2 = new SqlDataSource();
+                SqlDataSource2.ID = "SqlDataSource2";
+                this.Page.Controls.Add(SqlDataSource2);
+                SqlDataSource2.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString;
+                SqlDataSource2.SelectCommand = "SELECT emp_id,First_Name,Last_Name,Task_Assign from Employee where Manager_Id='" + loginid + "'";
+                GridView2.DataSource = SqlDataSource2;
+                GridView2.DataBind();
+            }
 
         }
 

@@ -29,10 +29,48 @@ namespace Vehicle_Manufacturing_System
                 if((gender.Text== "Male" ||gender.Text=="Female") && (job.Text=="Officer"||job.Text=="Clerk"||job.Text=="President" ||job.Text=="Department head")){
                 SqlConnection conc = new SqlConnection(ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString);
                 conc.Open();
-                if (comm.Text == "NULL")
+                if ( mgr_id.Text=="" && comm.Text == "")
+                {
+                    
+                    String qurey = "insert into Employee (emp_id,First_Name,Last_Name,job,Gender,Department_No,Salary,House_No,Area,Town,City) values(@id1,@id2,@id3,@id4,@id6,@id7,@id9,@id10,@id11,@id12,@id13)";
+                    SqlCommand cmd = new SqlCommand(qurey, conc);
+                    cmd.Parameters.AddWithValue("@id1", empid.Text);
+                    cmd.Parameters.AddWithValue("@id2", fname.Text);
+                    cmd.Parameters.AddWithValue("@id3", lname.Text);
+                    cmd.Parameters.AddWithValue("@id4", job.Text);
+                    //cmd.Parameters.AddWithValue("@id5", mgr_id.Text);
+                    cmd.Parameters.AddWithValue("@id6", gender.Text);
+                    cmd.Parameters.AddWithValue("@id7", deptno.Text);
+                    //cmd.Parameters.AddWithValue("@id8", comm.Text);
+                    cmd.Parameters.AddWithValue("@id9", sal.Text);
+                    cmd.Parameters.AddWithValue("@id10", house_num.Text);
+                    cmd.Parameters.AddWithValue("@id11", area.Text);
+                    cmd.Parameters.AddWithValue("@id12", town.Text);
+                    cmd.Parameters.AddWithValue("@id13", city.Text);
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        GridView1.DataBind();
+                    }
+                    catch (SqlException ex)
+                    {
+
+                        for (int i = 0; i < ex.Errors.Count; i++)
+                        {
+                            errorMessages.Append("Index #" + i + "\n" +
+                                "Message: " + ex.Errors[i].Message + "\n" +
+                                "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                "Source: " + ex.Errors[i].Source + "\n" +
+                                "Procedure: " + ex.Errors[i].Procedure + "\n");
+                        }
+                        Response.Write(errorMessages.ToString());
+                    }
+
+                }
+                else if (comm.Text == "")
                 {
 
-                    String qurey = "insert into Employee (emp_id,First_Name,Last_Name,job,Manager_Id,Department_No,Commision,Salary,House_No,Area,Town,City) values(@id1,@id2,@id3,@id4,@id5,@id6,@id7,@id9,@id10,@id11,@id12,@id13)";
+                    String qurey = "insert into Employee (emp_id,First_Name,Last_Name,job,Manager_Id,Gender,Department_No,Salary,House_No,Area,Town,City) values(@id1,@id2,@id3,@id4,@id5,@id6,@id7,@id9,@id10,@id11,@id12,@id13)";
                     SqlCommand cmd = new SqlCommand(qurey, conc);
                     cmd.Parameters.AddWithValue("@id1", empid.Text);
                     cmd.Parameters.AddWithValue("@id2", fname.Text);
@@ -67,7 +105,7 @@ namespace Vehicle_Manufacturing_System
                     }
 
                 }
-                else if (mgr_id.Text == "NULL")
+                else if (mgr_id.Text == "")
                 {
 
                     String qurey = "insert into Employee (emp_id,First_Name,Last_Name,job,Gender,Department_No,Commision,Salary,House_No,Area,Town,City) values(@id1,@id2,@id3,@id4,@id6,@id7,@id8,@id9,@id10,@id11,@id12,@id13)";
@@ -105,44 +143,7 @@ namespace Vehicle_Manufacturing_System
                     }
 
                 }
-                else if ( mgr_id.Text=="NULL" && comm.Text == "NULL")
-                {
-
-                    String qurey = "insert into Employee (emp_id,First_Name,Last_Name,job,Department_No,Commision,Salary,House_No,Area,Town,City) values(@id1,@id2,@id3,@id4,@id6,@id7,@id9,@id10,@id11,@id12,@id13)";
-                    SqlCommand cmd = new SqlCommand(qurey, conc);
-                    cmd.Parameters.AddWithValue("@id1", empid.Text);
-                    cmd.Parameters.AddWithValue("@id2", fname.Text);
-                    cmd.Parameters.AddWithValue("@id3", lname.Text);
-                    cmd.Parameters.AddWithValue("@id4", job.Text);
-                    //cmd.Parameters.AddWithValue("@id5", mgr_id.Text);
-                    cmd.Parameters.AddWithValue("@id6", gender.Text);
-                    cmd.Parameters.AddWithValue("@id7", deptno.Text);
-                    //cmd.Parameters.AddWithValue("@id8", comm.Text);
-                    cmd.Parameters.AddWithValue("@id9", sal.Text);
-                    cmd.Parameters.AddWithValue("@id10", house_num.Text);
-                    cmd.Parameters.AddWithValue("@id11", area.Text);
-                    cmd.Parameters.AddWithValue("@id12", town.Text);
-                    cmd.Parameters.AddWithValue("@id13", city.Text);
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                        GridView1.DataBind();
-                    }
-                    catch (SqlException ex)
-                    {
-
-                        for (int i = 0; i < ex.Errors.Count; i++)
-                        {
-                            errorMessages.Append("Index #" + i + "\n" +
-                                "Message: " + ex.Errors[i].Message + "\n" +
-                                "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
-                                "Source: " + ex.Errors[i].Source + "\n" +
-                                "Procedure: " + ex.Errors[i].Procedure + "\n");
-                        }
-                        Response.Write(errorMessages.ToString());
-                    }
-
-                }
+                
                 else
                 {
 
@@ -208,16 +209,24 @@ namespace Vehicle_Manufacturing_System
 
 
             conc.Close();
+            if (tpost == "Clerk" || tpost == "Officer")
+            {
+                TextBox1.Visible = false;
+                TextBox2.Visible = false;
+                Button1.Visible = false;
+            }
+            else
+            {
 
 
-            SqlDataSource SqlDataSource2 = new SqlDataSource();
-            SqlDataSource2.ID = "SqlDataSource2";
-            this.Page.Controls.Add(SqlDataSource2);
-            SqlDataSource2.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString;
-            SqlDataSource2.SelectCommand = "SELECT emp_id,First_Name,Last_Name,Task_Assign from Employee where Manager_Id='" + loginid + "'";
-            GridView2.DataSource = SqlDataSource2;
-            GridView2.DataBind();
-    
+                SqlDataSource SqlDataSource2 = new SqlDataSource();
+                SqlDataSource2.ID = "SqlDataSource2";
+                this.Page.Controls.Add(SqlDataSource2);
+                SqlDataSource2.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString;
+                SqlDataSource2.SelectCommand = "SELECT emp_id,First_Name,Last_Name,Task_Assign from Employee where Manager_Id='" + loginid + "'";
+                GridView2.DataSource = SqlDataSource2;
+                GridView2.DataBind();
+            }
 
 
         }
@@ -250,7 +259,7 @@ namespace Vehicle_Manufacturing_System
                 Response.Write(errorMessages.ToString());
             }
 
-            if (temp == 2)
+            if (temp == 1)
             {
 
 
@@ -261,6 +270,7 @@ namespace Vehicle_Manufacturing_System
                 {
                     cmd.ExecuteNonQuery();
                     GridView2.DataBind();
+                    GridView1.DataBind();
 
                 }
                 catch (SqlException ex)

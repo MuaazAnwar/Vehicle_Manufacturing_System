@@ -32,8 +32,41 @@ namespace Vehicle_Manufacturing_System
 
 
             conc.Close();
-            if(!(post=="President"))
+            if (post == "President")
             {
+                SqlDataSource SqlDataSource2 = new SqlDataSource();
+                SqlDataSource2.ID = "SqlDataSource2";
+                this.Page.Controls.Add(SqlDataSource2);
+                SqlDataSource2.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString;
+                SqlDataSource2.SelectCommand = "SELECT emp_id,First_Name,Last_Name,Task_Assign,Department_No from Employee where Manager_Id='" + loginid + "'";
+                GridView2.DataSource = SqlDataSource2;
+                GridView2.DataBind();
+                
+                
+            }
+            else if (post == "Departmenthead")
+                {
+                    GridView3.Visible = false;
+                    Label1.Visible = false;
+                    Label2.Visible = false;
+                    Button2.Visible = false;
+                    Button3.Visible = false;
+                    DropDownList1.Visible = false;
+                    TextBox3.Visible = false;
+                    SqlDataSource SqlDataSource2 = new SqlDataSource();
+                    SqlDataSource2.ID = "SqlDataSource2";
+                    this.Page.Controls.Add(SqlDataSource2);
+                    SqlDataSource2.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString;
+                    SqlDataSource2.SelectCommand = "SELECT emp_id,First_Name,Last_Name,Task_Assign,Department_No from Employee where Manager_Id='" + loginid + "'";
+                    GridView2.DataSource = SqlDataSource2;
+                    GridView2.DataBind();
+                    
+                }
+            
+
+            else 
+            {
+                
                 GridView3.Visible = false;
                 Label1.Visible = false;
                 Label2.Visible = false;
@@ -41,17 +74,10 @@ namespace Vehicle_Manufacturing_System
                 Button3.Visible = false;
                 DropDownList1.Visible = false;
                 TextBox3.Visible = false;
-
-                
+                TextBox1.Visible = false;
+                TextBox2.Visible = false;
+                Button1.Visible = false;
             }
-
-            SqlDataSource SqlDataSource2 = new SqlDataSource();
-            SqlDataSource2.ID = "SqlDataSource2";
-            this.Page.Controls.Add(SqlDataSource2);
-            SqlDataSource2.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString;
-            SqlDataSource2.SelectCommand = "SELECT emp_id,First_Name,Last_Name,Task_Assign,Department_No from Employee where Manager_Id='" + loginid + "'";
-            GridView2.DataSource = SqlDataSource2;
-            GridView2.DataBind();
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)

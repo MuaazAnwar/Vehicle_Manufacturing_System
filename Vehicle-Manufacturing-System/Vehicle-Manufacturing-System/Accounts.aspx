@@ -104,7 +104,7 @@
                         <tr>
                             <td class="auto-style2">House Number </td>
                             <td class="auto-style2">
-                                <asp:TextBox ID="house_num" runat="server" Height="16px" style="margin-left: 0px" Width="787px" OnTextChanged="house_num_TextChanged"></asp:TextBox>
+                                <asp:TextBox ID="house_num" runat="server" Height="16px" style="margin-left: 0px" Width="787px"></asp:TextBox>
                                 <cc1:FilteredTextBoxExtender ID="house_num_FilteredTextBoxExtender" runat="server" BehaviorID="house_num_FilteredTextBoxExtender" FilterType="LowercaseLetters, UppercaseLetters, Custom" ValidChars=".,-" TargetControlID="house_num">
                                 </cc1:FilteredTextBoxExtender>
                             </td>
@@ -129,7 +129,7 @@
                             <td class="auto-style6">City </td>
                             <td class="auto-style7">
                                 <asp:TextBox ID="city" runat="server" Height="16px" style="margin-left: 0px" Width="787px"></asp:TextBox>
-                                <cc1:FilteredTextBoxExtender ID="city_FilteredTextBoxExtender" runat="server" BehaviorID="city_FilteredTextBoxExtender" TargetControlID="city">
+                                <cc1:FilteredTextBoxExtender ID="city_FilteredTextBoxExtender" runat="server" BehaviorID="city_FilteredTextBoxExtender" FilterType="LowercaseLetters, UppercaseLetters" TargetControlID="city">
                                 </cc1:FilteredTextBoxExtender>
                             </td>
                         </tr>
