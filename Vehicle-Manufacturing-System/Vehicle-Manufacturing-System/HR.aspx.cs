@@ -244,6 +244,8 @@ namespace Vehicle_Manufacturing_System
             {
                 if (cmd2.ExecuteScalar() != null)
                     temp = Convert.ToInt32(cmd2.ExecuteScalar().ToString());
+                else
+                    Response.Write("No Employee Found jotee lagen gy aenda esy hrkat kari toh!!!");
             }
             catch (SqlException ex)
             {

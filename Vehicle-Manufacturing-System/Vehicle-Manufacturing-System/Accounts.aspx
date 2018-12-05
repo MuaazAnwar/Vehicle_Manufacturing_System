@@ -105,7 +105,7 @@
                             <td class="auto-style2">House Number </td>
                             <td class="auto-style2">
                                 <asp:TextBox ID="house_num" runat="server" Height="16px" style="margin-left: 0px" Width="787px"></asp:TextBox>
-                                <cc1:FilteredTextBoxExtender ID="house_num_FilteredTextBoxExtender" runat="server" BehaviorID="house_num_FilteredTextBoxExtender" FilterType="LowercaseLetters, UppercaseLetters, Custom" ValidChars=".,-" TargetControlID="house_num">
+                                <cc1:FilteredTextBoxExtender ID="house_num_FilteredTextBoxExtender" runat="server" BehaviorID="house_num_FilteredTextBoxExtender" FilterType="LowercaseLetters, UppercaseLetters, Custom" ValidChars=".,- " TargetControlID="house_num">
                                 </cc1:FilteredTextBoxExtender>
                             </td>
                         </tr>
@@ -113,7 +113,7 @@
                             <td class="auto-style5">Area </td>
                             <td>
                                 <asp:TextBox ID="area" runat="server" Height="16px" style="margin-left: 0px" Width="787px"></asp:TextBox>
-                                <cc1:FilteredTextBoxExtender ID="area_FilteredTextBoxExtender" runat="server" BehaviorID="area_FilteredTextBoxExtender"  FilterType="LowercaseLetters, UppercaseLetters, Custom" ValidChars=".,-" TargetControlID="area">
+                                <cc1:FilteredTextBoxExtender ID="area_FilteredTextBoxExtender" runat="server" BehaviorID="area_FilteredTextBoxExtender"  FilterType="LowercaseLetters, UppercaseLetters, Custom" ValidChars=".,- " TargetControlID="area">
                                 </cc1:FilteredTextBoxExtender>
                             </td>
                         </tr>
@@ -121,7 +121,7 @@
                             <td class="auto-style5">Town</td>
                             <td>
                                 <asp:TextBox ID="town" runat="server" Height="16px" style="margin-left: 0px" Width="787px"></asp:TextBox>
-                                <cc1:FilteredTextBoxExtender ID="town_FilteredTextBoxExtender" runat="server" BehaviorID="town_FilteredTextBoxExtender" FilterType="LowercaseLetters, UppercaseLetters, Custom" ValidChars=".,-" TargetControlID="town">
+                                <cc1:FilteredTextBoxExtender ID="town_FilteredTextBoxExtender" runat="server" BehaviorID="town_FilteredTextBoxExtender" FilterType="LowercaseLetters, UppercaseLetters, Custom" ValidChars=".,- " TargetControlID="town">
                                 </cc1:FilteredTextBoxExtender>
                             </td>
                         </tr>

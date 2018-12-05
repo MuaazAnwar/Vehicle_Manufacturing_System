@@ -74,8 +74,15 @@ namespace Vehicle_Manufacturing_System
             {
                 SqlConnection conc = new SqlConnection(ConfigurationManager.ConnectionStrings["DBconnect"].ConnectionString);
                 conc.Open();
+                if (CheckBox1.Checked && CheckBox2.Checked)
+                {
 
-                if (CheckBox1.Checked)
+                       colorid = colour_id.Text;
+                        carid = TextBox1.Text;
+                        updatetable();
+                }
+
+                else if (CheckBox1.Checked)
                 {
                     String qurey = "insert into Car values(@id1,@id2,@id3,@id4,@id5)";
                     SqlCommand cmd = new SqlCommand(qurey, conc);
@@ -108,7 +115,48 @@ namespace Vehicle_Manufacturing_System
 
 
                 }
-                else if (!CheckBox1.Checked)
+                else if (CheckBox2.Checked)
+                {
+                    if (type.Text == mettalic || type.Text == matte || type.Text == gloss)
+                    {
+                        String qurey = "insert into Colour values(@id6,@id7,@id8)";
+                        SqlCommand cmd = new SqlCommand(qurey, conc);
+                        cmd.Parameters.AddWithValue("@id6", colour_id.Text);
+                        cmd.Parameters.AddWithValue("@id7", name.Text);
+                        cmd.Parameters.AddWithValue("@id8", type.Text);
+
+                        try
+                        {
+
+                            cmd.ExecuteNonQuery();
+                            colorid = colour_id.Text;
+                            carid = TextBox1.Text;
+                            updatetable();
+                        }
+                        catch (SqlException ex)
+                        {
+
+                            for (int i = 0; i < ex.Errors.Count; i++)
+                            {
+                                errorMessages.Append("Index #" + i + "\n" +
+                                    "Message: " + ex.Errors[i].Message + "\n" +
+                                    "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                                    "Source: " + ex.Errors[i].Source + "\n" +
+                                    "Procedure: " + ex.Errors[i].Procedure + "\n");
+                            }
+                            Response.Write(errorMessages.ToString());
+                        }
+                    }
+
+                    else
+                    {
+                        Response.Write("Domain Problem");
+                    }
+                    
+
+
+                }
+                else if ((!CheckBox1.Checked) && (!CheckBox2.Checked))
                 {
 
 
@@ -147,8 +195,9 @@ namespace Vehicle_Manufacturing_System
                         cmd1.Parameters.AddWithValue("@id5", TextBox5.Text);
                         try
                         {
-                            cmd.ExecuteNonQuery();
+                            
                             cmd1.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
                             carid = TextBox1.Text;
                             updatetable();
                         }
@@ -174,6 +223,7 @@ namespace Vehicle_Manufacturing_System
                     }
 
                 }
+               
             }
 
 
@@ -209,6 +259,8 @@ namespace Vehicle_Manufacturing_System
                     {
                         if (cmd2.ExecuteScalar() != null)
                             temp = Convert.ToInt32(cmd2.ExecuteScalar().ToString());
+                        else
+                            Response.Write("No Employee Found");
                     }
                     catch (SqlException ex)
                     
@@ -257,6 +309,11 @@ namespace Vehicle_Manufacturing_System
             
             
 
+
+        }
+
+        protected void CheckBox2_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
 

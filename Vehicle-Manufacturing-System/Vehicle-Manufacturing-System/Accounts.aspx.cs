@@ -68,7 +68,7 @@ namespace Vehicle_Manufacturing_System
 
                 if (CheckBox1.Checked)
                 {
-                    String qurey = "insert into Car_sold values(@id1,@id2,@id3,@id4,@cno,@yr,getdate())";
+                    String qurey = "insert into Car_sold (emp_id,car_id,colour_id,customer_id,chassis_no,instalment_year,date_of_purchase) values(@id1,@id2,@id3,@id4,@cno,@yr,getdate())";
                     SqlCommand cmd = new SqlCommand(qurey, conc);
                     cmd.Parameters.AddWithValue("@id1", TextBox1.Text);
                     cmd.Parameters.AddWithValue("@id2", TextBox2.Text);
@@ -127,7 +127,7 @@ namespace Vehicle_Manufacturing_System
                         }
                         Response.Write(errorMessages.ToString());
                     }
-                    qurey = "insert into Car_sold values(@id1,@id2,@id3,@id4,@cno,@yr,getdate())";
+                    qurey = "insert into Car_sold (emp_id,car_id,colour_id,customer_id,chassis_no,instalment_year,date_of_purchase) values(@id1,@id2,@id3,@id4,@cno,@yr,getdate())";
                     SqlCommand cmd1 = new SqlCommand(qurey, conc);
                     cmd1.Parameters.AddWithValue("@id1", TextBox1.Text);
                     cmd1.Parameters.AddWithValue("@id2", TextBox2.Text);
@@ -137,8 +137,9 @@ namespace Vehicle_Manufacturing_System
                     cmd1.Parameters.AddWithValue("@yr", TextBox6.Text);
                     try
                     {
-                        cmd.ExecuteNonQuery();
+                        
                         cmd1.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
                         GridView1.DataBind();
 
                     }
@@ -178,6 +179,8 @@ namespace Vehicle_Manufacturing_System
                     {
                         if (cmd2.ExecuteScalar() != null)
                             temp = Convert.ToInt32(cmd2.ExecuteScalar().ToString());
+                        else
+                            Response.Write("No Employee Found.");
                     }
                     catch (SqlException ex)
                     

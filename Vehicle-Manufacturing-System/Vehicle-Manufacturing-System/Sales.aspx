@@ -109,7 +109,7 @@
                 <td class="auto-style3">Colour Name</td>
                 <td class="auto-style4">
                     <asp:TextBox ID="name" runat="server"></asp:TextBox>
-                    <cc1:FilteredTextBoxExtender ID="name_FilteredTextBoxExtender" runat="server" BehaviorID="name_FilteredTextBoxExtender" FilterType="LowercaseLetters, UppercaseLetters" TargetControlID="name">
+                    <cc1:FilteredTextBoxExtender ID="name_FilteredTextBoxExtender" runat="server" BehaviorID="name_FilteredTextBoxExtender" FilterType="LowercaseLetters, UppercaseLetters, Custom" ValidChars=" " TargetControlID="name">
                     </cc1:FilteredTextBoxExtender>
                 </td>
             </tr>
@@ -124,6 +124,8 @@
             </table>
         <div class="auto-style5">
         <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:CheckBox ID="CheckBox2" runat="server" OnCheckedChanged="CheckBox2_CheckedChanged" Text="Car Already exists" />
         <br />
         <asp:Label ID="info1" runat="server" Text="Add Car info"></asp:Label>
         

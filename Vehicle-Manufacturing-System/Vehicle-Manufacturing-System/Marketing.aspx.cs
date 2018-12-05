@@ -114,10 +114,14 @@ namespace Vehicle_Manufacturing_System
                 SqlCommand cmd = new SqlCommand(qurey, conc);
                 try
                 {
-                    cmd.ExecuteNonQuery();
-                    GridView1.DataBind();
-                    GridView2.DataBind();
-                    GridView3.DataBind();
+                    if (cmd.ExecuteNonQuery() < 1)
+                        Response.Write("Employee dosen't exsist.");
+                    else
+                    {
+                        GridView1.DataBind();
+                        GridView2.DataBind();
+                        GridView3.DataBind();
+                    }
                 }
                 catch (SqlException ex)
                 {
@@ -140,10 +144,16 @@ namespace Vehicle_Manufacturing_System
                 SqlCommand cmd = new SqlCommand(qurey, conc);
                 try
                 {
-                    cmd.ExecuteNonQuery();
-                    GridView1.DataBind();
-                    GridView2.DataBind();
-                    GridView3.DataBind();
+                    if (cmd.ExecuteNonQuery() < 1)
+                        Response.Write("Department dosen't exsist.");
+                    else
+                    {
+                        GridView1.DataBind();
+                        GridView2.DataBind();
+                        GridView3.DataBind();
+                    }
+                    
+     
                 }
                 catch (SqlException ex)
                 {
@@ -166,10 +176,15 @@ namespace Vehicle_Manufacturing_System
                 SqlCommand cmd = new SqlCommand(qurey, conc);
                 try
                 {
-                    cmd.ExecuteNonQuery();
-                    GridView1.DataBind();
-                    GridView2.DataBind();
-                    GridView3.DataBind();
+                    if (cmd.ExecuteNonQuery() < 1)
+                        Response.Write("Colour dosen't exsist.");
+                    else
+                    {
+                        GridView1.DataBind();
+                        GridView2.DataBind();
+                        GridView3.DataBind();
+                    }
+                    
                 }
                 catch (SqlException ex)
                 {
@@ -192,10 +207,15 @@ namespace Vehicle_Manufacturing_System
                 SqlCommand cmd = new SqlCommand(qurey, conc);
                 try
                 {
-                    cmd.ExecuteNonQuery();
-                    GridView1.DataBind();
-                    GridView2.DataBind();
-                    GridView3.DataBind();
+                    if (cmd.ExecuteNonQuery() < 1)
+                        Response.Write("Customer dosen't exsist.");
+                    else
+                    {
+                        GridView1.DataBind();
+                        GridView2.DataBind();
+                        GridView3.DataBind();
+                    }
+                    
                 }
                 catch (SqlException ex)
                 {
@@ -218,10 +238,14 @@ namespace Vehicle_Manufacturing_System
                 SqlCommand cmd = new SqlCommand(qurey, conc);
                 try
                 {
-                    cmd.ExecuteNonQuery();
-                    GridView1.DataBind();
-                    GridView2.DataBind();
-                    GridView3.DataBind();
+                    if (cmd.ExecuteNonQuery() < 1)
+                        Response.Write("Chassis number dosen't exsist.");
+                    else
+                    {
+                        GridView1.DataBind();
+                        GridView2.DataBind();
+                        GridView3.DataBind();
+                    }
                 }
                 catch (SqlException ex)
                 {
@@ -244,10 +268,14 @@ namespace Vehicle_Manufacturing_System
                 SqlCommand cmd = new SqlCommand(qurey, conc);
                 try
                 {
-                    cmd.ExecuteNonQuery();
-                    GridView1.DataBind();
-                    GridView2.DataBind();
-                    GridView3.DataBind();
+                    if (cmd.ExecuteNonQuery() < 1)
+                        Response.Write("Car dosen't exsist.");
+                    else
+                    {
+                        GridView1.DataBind();
+                        GridView2.DataBind();
+                        GridView3.DataBind();
+                    }
                 }
                 catch (SqlException ex)
                 {
@@ -278,7 +306,9 @@ namespace Vehicle_Manufacturing_System
             try
             {
                 if (cmd2.ExecuteScalar() != null)
-                    temp = Convert.ToInt32(cmd2.ExecuteScalar().ToString()); 
+                    temp = Convert.ToInt32(cmd2.ExecuteScalar().ToString());
+                else
+                    Response.Write("No Employee Found.");
             }
             catch (SqlException ex)
             {
