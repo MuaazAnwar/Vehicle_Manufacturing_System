@@ -1,0 +1,5 @@
+Pre- Requirements
+IDE: Microsoft Visual Studio
+Asp.net framework
+AJax control toolkit.dll (for run only) 
+Ajax control kit library (for edit)
