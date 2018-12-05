@@ -1,5 +1,7 @@
 Pre- Requirements
 IDE: Microsoft Visual Studio
-Asp.net framework
-AJax control toolkit.dll (for run only) 
-Ajax control kit library (for edit)
+Asp.net framework must install in ide 
+Ajax control toolkit.dll (for run only) 
+Ajax control toolkit library (for edit)
+
+simply then include project to ide and run from login.apx (web form) 
